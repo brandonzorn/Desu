@@ -112,6 +112,12 @@ class Database:
             sqlalchemy.Column(
                 "manga_id",
                 sqlalchemy.Text,
+                sqlalchemy.ForeignKey(
+                    "manga.id",
+                    ondelete="CASCADE",
+                    onupdate="CASCADE",
+                ),
+                nullable=False,
             ),
         )
 
@@ -121,6 +127,11 @@ class Database:
             sqlalchemy.Column(
                 "manga_id",
                 sqlalchemy.Text,
+                sqlalchemy.ForeignKey(
+                    "manga.id",
+                    ondelete="CASCADE",
+                    onupdate="CASCADE",
+                ),
                 primary_key=True,
                 nullable=False,
             ),
@@ -137,11 +148,21 @@ class Database:
             sqlalchemy.Column(
                 "manga_id",
                 sqlalchemy.Text,
+                sqlalchemy.ForeignKey(
+                    "manga.id",
+                    ondelete="CASCADE",
+                    onupdate="CASCADE",
+                ),
                 nullable=False,
             ),
             sqlalchemy.Column(
                 "chapter_id",
                 sqlalchemy.Text,
+                sqlalchemy.ForeignKey(
+                    "chapters.id",
+                    ondelete="CASCADE",
+                    onupdate="CASCADE",
+                ),
                 primary_key=True,
                 nullable=False,
             ),
